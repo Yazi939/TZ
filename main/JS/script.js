@@ -39,17 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Добавляем обработчик скролла
+    // Обновляем обработчик скролла
     const nav = document.querySelector('.nav');
-    let scrolled = false;
+    let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50 && !scrolled) {
-            nav.classList.add('scrolled');
-            scrolled = true;
-        } else if (window.scrollY <= 50 && scrolled) {
-            nav.classList.remove('scrolled');
-            scrolled = false;
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) { // Активируем фиксацию после прокрутки на 100px
+            nav.classList.add('fixed');
+        } else {
+            nav.classList.remove('fixed');
         }
+
+        lastScroll = currentScroll;
     });
 });
