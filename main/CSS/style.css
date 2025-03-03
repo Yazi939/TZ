@@ -1391,3 +1391,40 @@ input[type="checkbox"]:checked::after {
         margin-bottom: 20px;
     }
 }
+
+@media screen and (max-width: 425px) {
+    .features {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .feature {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .feature .description {
+        font-size: 16px;
+        line-height: 1.4;
+        flex: 1;
+    }
+
+    .feature .icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+    }
+
+    .feature .price {
+        font-size: 18px;
+    }
+
+    /* Обновляем отступы для контейнера */
+    .hero_content {
+        padding: 60px 15px 15px 15px !important;
+    }
+}
