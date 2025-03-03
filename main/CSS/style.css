@@ -1,0 +1,709 @@
+@font-face {
+    font-family: 'Prata';
+    src: url('../../assets/font/Prata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Arial';
+    src: url('../../assets/font/Arial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ArialCE';
+    src: url('../../assets/font/ArialCE.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    
+ --backgroung-color: #222222;
+ --backgroung-color-secondary: #2a2a2a;
+ --primary-color: #405D65;
+ --primary-color-app: #EFCFAD;
+ --main-font: 'Prata';
+ --secondary-font: 'Arial';
+ --secondary-font-ce: 'ArialCE';
+}
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.container > img{
+    padding: 0 !important;
+}
+
+/* Стили шапки */
+header {
+    background-color: var(--backgroung-color);
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.header_content {
+    width: 70%;
+}
+
+.header_image {
+    width: 30%;
+    position: relative;
+}
+
+.header_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 100px;
+    padding: 40px 0;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.nav_logo {
+    color: white;
+    font-size: 36px;
+    font-weight: light;
+    font-family: var(--main-font), serif;
+    padding-left: 0;
+    flex-shrink: 0;
+}
+
+.nav_menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    padding-right: 0;
+    margin-left: 0;
+    flex-shrink: 0;
+}
+
+.nav_link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+/* Стили для бургер-меню */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 101; /* Чтобы крестик был поверх меню */
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color-app);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Анимация для крестика */
+.burger-menu.active span:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.burger-menu.active span:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Обновляем стили для мобильного меню */
+.nav_menu.active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--backgroung-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    gap: 30px;
+}
+
+.nav_menu.active .nav_link {
+    font-size: 24px;
+}
+
+/* Секция hero */
+.hero {
+    background-color: var(--backgroung-color);
+    color: white;
+    padding: 0;
+    width: 100%;
+}
+
+.hero .container {
+    padding: 0;
+}
+
+.hero_content {
+    max-width: none;
+    padding-left: 40px;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-family: var(--main-font), serif;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 50px;
+    margin-bottom: 40px;
+    font-family: var(--secondary-font), serif;
+    font-weight: 100;
+}
+
+.features {
+    display: flex;
+    margin-bottom: 40px;
+    flex-direction: column;
+}
+.price{
+    font-size: 40px;
+    font-family: var(--main-font), serif;
+    font-weight: lighter;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.feature {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.price, .percentage {
+    font-size: 40px;
+   
+}
+
+.description {
+    font-size: 24px;
+    color: white !important;
+    font-family: var(--secondary-font), serif;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.description #text{
+    font-size: 24px;
+    color: white !important;
+    font-weight: 100;
+    font-family: var(--secondary-font), serif;
+}
+
+/* Обновляем стили для секции gallery */
+.gallery {
+    background-color: var(--backgroung-color-secondary);
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.gallery_container {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.gallery_side {
+    width: 30%;
+    height: 85vh;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+.gallery_side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery_content {
+    width: 40%;
+    padding: 80px 70px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 85vh;
+}
+
+.gallery_items {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 120px;
+}
+
+.gallery_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid #55565A;
+    padding-bottom: 30px;
+}
+
+.text_gallery {
+    color: white;
+    font-family: var(--secondary-font), serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: lighter;
+}
+
+.order_btn_gallery {
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    right: 70px;
+    background-color: white;
+    color: var(--backgroung-color);
+    padding: 35px 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+/* Медиа-запросы для галереи */
+@media screen and (max-width: 1285px) {
+    .gallery_container {
+        flex-direction: column;
+    }
+
+    .gallery_side {
+        width: 100%;
+        height: 40vh;
+        padding-top: 0;
+    }
+
+    .gallery_content {
+        width: 100%;
+        padding: 60px 40px;
+        min-height: auto;
+    }
+
+    .gallery_items {
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery_content {
+        padding: 30px 15px;
+    }
+
+    .gallery_items {
+        gap: 25px;
+    }
+
+    .gallery_item {
+        gap: 15px;
+    }
+}
+
+/* Секция contact */
+.contact {
+    background-color: white;
+    padding: 80px 0;
+}
+
+.contact_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Кнопки */
+.order_btn {
+    background-color: white;
+    color: var(--backgroung-color);
+    padding: 35px 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;font-size: 24px;
+}
+
+/* Футер */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer_content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer_links,
+.social_links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.legal_links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer_bottom a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+}
+.the_second_column_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.the_first_column {
+    width: 60%;
+    min-width: 600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0 60px;
+    padding-left: 120px;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+}
+.the_second_column {
+    flex: 1;
+    height: 100vh;
+    position: relative;
+    min-width: 40%;
+}
+
+.the_second_column_image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.the_second_column .container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Обновляем стили для контейнера в шапке */
+header .container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    padding-left: 40px;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(--primary-color-app);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: visible; /* Разрешаем контенту выходить за пределы */
+}
+
+/* Удаляем псевдоэлемент с галочкой */
+.icon::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/Frame\ 1321314291.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 54%; /* Увеличиваем с 52% до 54% для смещения правее */
+    transform: translate(-50%, -50%);
+}
+
+/* Медиа запросы */
+@media screen and (max-width: 1440px) {
+    .the_first_column {
+        padding-left: 80px;
+        gap: 60px;
+    }
+
+    .nav {
+        gap: 80px;
+    }
+
+    .nav_menu {
+        gap: 35px;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+
+    .subtitle {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .nav {
+        gap: 60px;
+    }
+
+    .nav_menu {
+        gap: 30px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .subtitle {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .the_first_column {
+        width: 100%;
+        min-width: unset;
+        padding: 40px;
+        min-height: 100vh;
+    }
+
+    .the_second_column {
+        width: 100%;
+        height: 50vh;
+        min-width: unset;
+    }
+
+    .the_second_column_image {
+        height: 100%;
+    }
+
+    .nav {
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .nav_menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .subtitle {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .the_first_column {
+        padding: 30px;
+        gap: 50px;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .nav_menu {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .subtitle {
+        font-size: 30px;
+    }
+
+    .price {
+        font-size: 35px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+    .nav{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .the_first_column {
+        padding: 20px;
+        gap: 40px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .subtitle {
+        font-size: 25px;
+    }
+
+    .features {
+        gap: 25px;
+    }
+
+    .feature {
+        gap: 15px;
+    }
+
+    .price {
+        font-size: 30px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .order_btn {
+        width: 100%;
+        padding: 20px 30px;
+    }
+}
+
+/* Для высоких экранов */
+@media screen and (min-height: 1000px) {
+    .the_first_column {
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .hero_content{
+        padding-left: 0;
+    }
+    .nav{
+        display: flex;
+        flex-direction: row;
+    }
+    .container{
+        padding: 0 !important;
+    }
+}
+p.text_gallery{
+    font-family: var(--secondary-font), serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: lighter;
+}
+@media only screen and (max-width: 1565px) and (min-width: 1285px) {
+    .gallery_side {
+        width: 27%;
+    }
+
+    .gallery_content {
+        width: 46%;
+    }
+}
