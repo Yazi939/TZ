@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'Gilroy-Light';
-    src: url('../../assets/fonts/Gilroy-Light.otf') format('truetype');
+    src: url('../assets/fonts/Gilroy-Light.otf') format('truetype');
 }
 @font-face {
     font-family: 'Gilroy-ExtraBold';
-    src: url('../../assets/fonts/Gilroy-ExtraBold.otf') format('truetype');
+    src: url('../assets/fonts/Gilroy-ExtraBold.otf') format('truetype');
 }
 @font-face {
     font-family: 'Gilroy-Bold';
-    src: url('../../assets/fonts/Gilroy-Bold.ttf') format('truetype');
+    src: url('../assets/fonts/Gilroy-Bold.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Gilroy-Regular';
-    src: url('../../assets/fonts/Gilroy-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Gilroy-Regular.ttf') format('truetype');
 }
 :root {
-    --font-family: 'Gilroy-Light', sans-serif;
+    --font-family: 'Gilroy-Regular', sans-serif;
     --font-family-extra-bold: 'Gilroy-ExtraBold', sans-serif;
     --font-family-bold: 'Gilroy-Bold', sans-serif;
     --font-family-regular: 'Gilroy-Regular', sans-serif;
@@ -94,7 +94,7 @@ body {
 }
 .carousel-img {
     width: 100%;
-    height: 420px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     display: none;
     border-radius: 0;
@@ -165,22 +165,23 @@ body {
     padding-left: 0;
     padding-top: 36px;
     padding-bottom: 36px;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     
     border-radius: 14px;
 }
 
 .why-us-right h2 {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 700;
     margin: 0 0 36px 0;
-    color: #222;
+    color: #333333;
 }
 .why-us-desc {
     font-size: 20px;
     color: #555;
     margin-bottom: 40px;
+    margin-top: 0;
     line-height: 1.2;
 }
 .why-us-features {
